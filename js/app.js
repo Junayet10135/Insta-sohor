@@ -8,6 +8,7 @@ const getLikedPosts = () => {
 };
 
 const getReportedPosts = () => {
+
     return posts.filter((post) => reportedPostsId.includes(post.id));
 };
 
@@ -16,7 +17,6 @@ const isLiked = (id) => {
 };
 
 const addToLiked = (id) => {
- // console.log(id);
     likedPostsId.push(id); 
     showPosts(posts);
 };
@@ -63,7 +63,7 @@ const createPost = (post) => {
                     target="_blank"
                     class="post__avatar"
                   >
-                    <img src="${image}" alt="User Picture" />
+                    <img src="${post.userImage}" alt="User Picture" />
                   </a>
                   <a href="#" class="post__user">phero</a>
                 </div>
