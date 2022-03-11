@@ -1,3 +1,6 @@
+document.getElementById( "liked-title" ).style.display = "none";
+document.getElementById( "reported-title" ).style.display = "none";
+
 let posts=[ ];
 
 const likedPostsId = [];
@@ -35,18 +38,27 @@ const displayContent = (text) => {
 const switchTab = (id) => {
     if (id === "posts") {
         document.getElementById( "posts" ).style.display = "grid";
+        document.getElementById('bonus-part').style.display = "block";
         document.getElementById( "liked" ).style.display = "none";
         document.getElementById( "reported" ).style.display = "none";
+        document.getElementById( "liked-title" ).style.display = "none";
+        document.getElementById( "reported-title" ).style.display = "none";
     } else if (id === "liked") {
         document.getElementById( "liked" ).style.display = "block";
         document.getElementById( "posts" ).style.display = "none";
         document.getElementById( "reported" ).style.display = "none";
+        document.getElementById('bonus-part').style.display = "none";
+        document.getElementById( "liked-title" ).style.display = "block";
+        document.getElementById( "reported-title" ).style.display = "none";
 
         displayLikedPosts();
     } else {
         document.getElementById( "reported" ).style.display = "block";
         document.getElementById( "posts" ).style.display = "none";
         document.getElementById( "liked" ).style.display = "none";
+        document.getElementById('bonus-part').style.display = "none";
+        document.getElementById( "liked-title" ).style.display = "none";
+        document.getElementById( "reported-title" ).style.display = "block";
 
         displayReportedPosts();
     }
@@ -145,7 +157,6 @@ const showPosts = (posts) => {
 };
 
 const displayLikedPosts = () => {
-  document.getElementById('bonus-part').style.display = "none";
   document.getElementById( "liked" ).innerHTML= "";
     const likedPosts = getLikedPosts();
     likedPosts.forEach((post) => {
@@ -155,7 +166,6 @@ const displayLikedPosts = () => {
 };
 
 const displayReportedPosts = () => {
-   document.getElementById('bonus-part').style.display = "none";
    document.getElementById( "reported" ).innerHTML = "";
     const reportedPosts = getReportedPosts();
     reportedPosts.forEach((post) => {
